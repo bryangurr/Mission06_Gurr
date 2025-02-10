@@ -16,7 +16,12 @@ html {
   position: relative;
   min-height: 100%;
 }
-
+ 
 body {
   margin-bottom: 60px;
+}
+
+paragraph {
+    left: 25%;
+    right: 25%;
 }

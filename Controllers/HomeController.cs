@@ -18,7 +18,12 @@ namespace Mission06_Gurr.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
+        {
+            return View();
+        }
+        
+        public IActionResult Movies()
         {
             return View();
         }
