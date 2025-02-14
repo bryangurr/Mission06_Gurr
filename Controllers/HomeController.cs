@@ -13,17 +13,17 @@ namespace Mission06_Gurr.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index() // Homepage
         {
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult About() // About me page with links to external sites
         {
             return View();
         }
         
-        public IActionResult Movies()
+        public IActionResult Movies() // Form to add movie
         {
             return View();
         }
