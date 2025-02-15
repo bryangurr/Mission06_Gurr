@@ -17,9 +17,9 @@ namespace Mission06_Gurr.Models
         [Required]
 
         public string Rating { get; set; }
-        [Required]
+
         // Nullable entries
-        public bool? Edited { get; set; }
+        public int? Edited { get; set; }  // Should allow null values
         public string? LentTo {  get; set; }
         [MaxLength(25)]
         public string? Notes { get; set; }

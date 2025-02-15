@@ -11,8 +11,8 @@ using Mission06_Gurr.Models;
 namespace Mission06_Gurr.Migrations
 {
     [DbContext(typeof(MoviesContext))]
-    [Migration("20250215065825_Initial")]
-    partial class Initial
+    [Migration("20250215073207_Initial2")]
+    partial class Initial2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,13 +33,15 @@ namespace Mission06_Gurr.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<bool?>("Edited")
+                    b.Property<int?>("Edited")
+                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("LentTo")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Notes")
+                        .HasMaxLength(25)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Rating")
