@@ -31,7 +31,6 @@ namespace Mission06_Gurr.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("Edited")
-                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("LentTo")
