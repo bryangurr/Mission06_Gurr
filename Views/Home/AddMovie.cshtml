@@ -8,7 +8,7 @@
 @model Movie
 
 <h1>@ViewData["Title"]</h1>
-<form method="post">
+<form method="post" action="AddMovie">
     <label asp-for="Title">Movied Title:</label>
     <br />
     <input asp-for="Title" />
@@ -36,21 +36,20 @@
 
     <label asp-for="Edited">Edited: </label>
     <br />
-    
-    <input asp-for="Edited" type="radio" value=True>Yes</input>
+
+    <input asp-for="Edited" type="radio" value="True" id="edited-yes">
+    <label for="edited-yes">Yes</label>
     <br />
-    <input asp-for="Edited" type="radio" value="False">No</input>
+    <input asp-for="Edited" type="radio" value="False" id="edited-no">
+    <label for="edited-no">No</label>
+
     <br />
 
     <label asp-for="Notes">Notes: </label>
     <br />
-    <textarea asp-for="Notes" rows="3" cols="30"/></textarea>
+    <textarea asp-for="Notes" rows="3" cols="30"></textarea>
     <br /> <br />
 
     <input type="submit" value="Submit"/>
-
-
-
-
 
 </form>

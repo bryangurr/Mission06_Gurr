@@ -6,11 +6,10 @@ namespace Mission06_Gurr.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private MoviesContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
+        public HomeController(MoviesContext temp) {  // Constructor
+            _context = temp;
         }
 
         [HttpGet]
@@ -26,9 +25,17 @@ namespace Mission06_Gurr.Controllers
         }
 
         [HttpGet]
-        public IActionResult Movies() // Form to add movie
+        public IActionResult AddMovie() // Form to add movie
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddMovie(Movie NewMovie)
+        {
+            _context.Movies.Add(NewMovie); // Add record to database
+            _context.SaveChanges();
+            return View("AddMovie");
         }
 
     }
