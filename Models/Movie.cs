@@ -1,7 +1,10 @@
-﻿namespace Mission06_Gurr.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Mission06_Gurr.Models
 {
     public class Movie
     {
+        [Key]
         public string Title { get; set; }
         public string Category { get; set; }
         public int Year { get; set; }
