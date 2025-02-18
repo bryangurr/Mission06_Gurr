@@ -41,7 +41,9 @@ namespace Mission06_Gurr.Controllers
         [HttpGet]
         public IActionResult Movies()
         {
-            return View();
+            var movies = _context.Movies
+               .OrderBy(x => x.MovieId).ToList();
+            return View("Movies", movies);
         }
 
     }

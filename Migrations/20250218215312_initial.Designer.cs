@@ -11,7 +11,7 @@ using Mission06_Gurr.Models;
 namespace Mission06_Gurr.Migrations
 {
     [DbContext(typeof(MoviesContext))]
-    [Migration("20250218212422_initial")]
+    [Migration("20250218215312_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -37,13 +37,14 @@ namespace Mission06_Gurr.Migrations
 
             modelBuilder.Entity("Mission06_Gurr.Models.Movie", b =>
                 {
-                    b.Property<string>("Title")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("MovieId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Copied")
+                    b.Property<int>("CopiedToPlex")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
@@ -51,6 +52,7 @@ namespace Mission06_Gurr.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("Edited")
+                        .IsRequired()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("LentTo")
@@ -64,10 +66,14 @@ namespace Mission06_Gurr.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Title");
+                    b.HasKey("MovieId");
 
                     b.HasIndex("CategoryId");
 

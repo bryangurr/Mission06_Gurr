@@ -27,19 +27,21 @@ namespace Mission06_Gurr.Migrations
                 name: "Movies",
                 columns: table => new
                 {
+                    MovieId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
-                    CategoryId = table.Column<int>(type: "INTEGER", nullable: false),
                     Year = table.Column<int>(type: "INTEGER", nullable: false),
+                    CopiedToPlex = table.Column<int>(type: "INTEGER", nullable: false),
+                    Edited = table.Column<int>(type: "INTEGER", nullable: false),
+                    CategoryId = table.Column<int>(type: "INTEGER", nullable: false),
                     Director = table.Column<string>(type: "TEXT", nullable: false),
                     Rating = table.Column<string>(type: "TEXT", nullable: false),
-                    Copied = table.Column<int>(type: "INTEGER", nullable: false),
-                    Edited = table.Column<int>(type: "INTEGER", nullable: true),
                     LentTo = table.Column<string>(type: "TEXT", nullable: true),
                     Notes = table.Column<string>(type: "TEXT", maxLength: 25, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Movies", x => x.Title);
+                    table.PrimaryKey("PK_Movies", x => x.MovieId);
                     table.ForeignKey(
                         name: "FK_Movies_Categories_CategoryId",
                         column: x => x.CategoryId,
