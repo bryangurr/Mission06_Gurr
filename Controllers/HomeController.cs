@@ -38,5 +38,11 @@ namespace Mission06_Gurr.Controllers
             return View("AddMovie");
         }
 
+        [HttpGet]
+        public IActionResult Movies()
+        {
+            return View();
+        }
+
     }
 }

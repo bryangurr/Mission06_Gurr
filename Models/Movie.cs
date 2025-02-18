@@ -18,8 +18,12 @@ namespace Mission06_Gurr.Models
 
         public string Rating { get; set; }
 
+        [Required]
+        public int Copied { get; set; }
+
         // Nullable entries
-        public int? Edited { get; set; }  
+        public int? Edited { get; set; }
+
         public string? LentTo {  get; set; }
         [MaxLength(25)]
         public string? Notes { get; set; }
