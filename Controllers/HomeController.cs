@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission06_Gurr.Models;
 using System.Diagnostics;
 
@@ -42,8 +43,19 @@ namespace Mission06_Gurr.Controllers
         public IActionResult Movies()
         {
             var movies = _context.Movies
-               .OrderBy(x => x.MovieId).ToList();
-            return View("Movies", movies);
+                .Include(x => x.Category)
+                .OrderBy(x => x.MovieId)
+                .ToList();
+            return View(movies);
+        }
+
+        public IActionResult Index1()
+        {
+            var movies = _context.Movies
+                .Include(x => x.Category)
+                .OrderBy(x => x.MovieId)
+                .ToList();
+            return View(movies);
         }
 
     }

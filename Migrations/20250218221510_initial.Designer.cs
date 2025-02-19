@@ -11,8 +11,8 @@ using Mission06_Gurr.Models;
 namespace Mission06_Gurr.Migrations
 {
     [DbContext(typeof(MoviesContext))]
-    [Migration("20250218215836_initial2")]
-    partial class initial2
+    [Migration("20250218221510_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

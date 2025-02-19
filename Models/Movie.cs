@@ -10,7 +10,7 @@ namespace Mission06_Gurr.Models
         public int MovieId { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        public required string Title { get; set; }
 
         [Required]
         public int Year { get; set; }

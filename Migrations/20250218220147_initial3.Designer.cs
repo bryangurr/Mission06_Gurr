@@ -11,8 +11,8 @@ using Mission06_Gurr.Models;
 namespace Mission06_Gurr.Migrations
 {
     [DbContext(typeof(MoviesContext))]
-    [Migration("20250218215312_initial")]
-    partial class initial
+    [Migration("20250218220147_initial3")]
+    partial class initial3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,18 +41,16 @@ namespace Mission06_Gurr.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("CopiedToPlex")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("Edited")
-                        .IsRequired()
+                    b.Property<int>("Edited")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("LentTo")
@@ -63,7 +61,6 @@ namespace Mission06_Gurr.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Rating")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
@@ -84,9 +81,7 @@ namespace Mission06_Gurr.Migrations
                 {
                     b.HasOne("Mission06_Gurr.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.Navigation("Category");
                 });
