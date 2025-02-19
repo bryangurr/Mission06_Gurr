@@ -28,6 +28,9 @@ namespace Mission06_Gurr.Controllers
         [HttpGet]
         public IActionResult AddMovie() // Form to add movie
         {
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.CategoryId)
+                .ToList()
             return View();
         }
 
