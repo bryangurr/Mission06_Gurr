@@ -39,7 +39,8 @@ namespace Mission06_Gurr.Controllers
         {
             _context.Movies.Add(NewMovie); // Add record to database
             _context.SaveChanges();
-            return View("AddMovie");
+            //return RedirectToAction("AddMovie");
+            return View("Confirmation", NewMovie);
         }
 
         [HttpGet]
