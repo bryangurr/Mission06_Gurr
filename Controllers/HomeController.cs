@@ -30,7 +30,7 @@ namespace Mission06_Gurr.Controllers
         {
             ViewBag.Categories = _context.Categories
                 .OrderBy(x => x.CategoryId)
-                .ToList()
+                .ToList();
             return View();
         }
 
