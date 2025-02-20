@@ -1,42 +1,42 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+@*     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860 *@
 
-@model List<Movie>
+@* @{ *@
+@* } *@
 
-<div>
-    <h2>Movies</h2>
-    <table class="table table-bordered">
-        <tr>
-            <th>Title</th>
-            <th>Year</th>
-            <th>Category</th>
-            <th>Director</th>
-            <th>Rating</th>
-            <th>Edited</th>
-            <th>Lent to</th>
-            <th>Copied to Plex</th>
-            <th>Notes</th>
-        </tr>
-        @if (Model != null)
-        {
-            foreach (var movie in Model)
-            {
-                <tr>
-                    <td>@movie.Title</td>
-                    <td>@movie.Year</td>
-                    <td>@movie.Category?.CategoryName</td>
-                    <td>@movie.Director</td>
-                    <td>@movie.Rating</td>  
-                    <td>@movie.Edited</td>
-                    <td>@movie.LentTo</td>
-                    <td>@movie.CopiedToPlex</td>
-                    <td>@movie.Notes</td>
-                </tr>
-            }
-        }
-    </table>
-</div>
+@* @model List<Movie> *@
+
+@* <div> *@
+@*     <h2>Movies</h2> *@
+@*     <table class="table table-bordered"> *@
+@*         <tr> *@
+@*             <th>Title</th> *@
+@*             <th>Year</th> *@
+@*             <th>Category</th> *@
+@*             <th>Director</th> *@
+@*             <th>Rating</th> *@
+@*             <th>Edited</th> *@
+@*             <th>Lent to</th> *@
+@*             <th>Copied to Plex</th> *@
+@*             <th>Notes</th> *@
+@*         </tr> *@
+@*         @if (Model != null) *@
+@*         { *@
+@*             foreach (var movie in Model) *@
+@*             { *@
+@*                 <tr> *@
+@*                     <td>@movie.Title</td> *@
+@*                     <td>@movie.Year</td> *@
+@*                     <td>@movie.Category?.CategoryName</td> *@
+@*                     <td>@movie.Director</td> *@
+@*                     <td>@movie.Rating</td>   *@
+@*                     <td>@movie.Edited</td> *@
+@*                     <td>@movie.LentTo</td> *@
+@*                     <td>@movie.CopiedToPlex</td> *@
+@*                     <td>@movie.Notes</td> *@
+@*                 </tr> *@
+@*             } *@
+@*         } *@
+@*     </table> *@
+@* </div> *@
 
