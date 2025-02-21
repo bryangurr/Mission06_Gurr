@@ -33,6 +33,7 @@ namespace Mission06_Gurr.Controllers
             // Form to add movie
 
             // Grab categories to populate dropdown
+
             ViewBag.Categories = _context.Categories
                 .OrderBy(x => x.CategoryId)
                 .ToList();
@@ -42,6 +43,14 @@ namespace Mission06_Gurr.Controllers
         [HttpPost]
         public IActionResult AddMovie(Movie NewMovie)
         {
+
+            if (!ModelState.IsValid) // Ensure validation is checked
+            {
+                ViewBag.Categories = _context.Categories.ToList(); // Re-populate dropdown list
+                return View(NewMovie);
+            }
+
+
             // Add new movie to database
             _context.Movies.Add(NewMovie); 
             _context.SaveChanges();
@@ -79,6 +88,13 @@ namespace Mission06_Gurr.Controllers
         [HttpPost]
         public IActionResult EditMovie(Movie updatedMovie)
         {
+            if (!ModelState.IsValid) // Ensure validation is checked
+            {
+                ViewBag.Categories = _context.Categories.ToList(); // Re-populate dropdown list
+                return View("AddMovie", updatedMovie);
+            }
+
+
             // Save edits to db
             _context.Update(updatedMovie);
             _context.SaveChanges();
