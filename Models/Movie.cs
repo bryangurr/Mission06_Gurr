@@ -13,6 +13,7 @@ namespace Mission06_Gurr.Models
         public required string Title { get; set; }
 
         [Required]
+        [Range(1888, int.MaxValue, ErrorMessage = "Year must be at least 1900.")]
         public int Year { get; set; }
 
         [Required]

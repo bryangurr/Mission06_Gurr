@@ -8,9 +8,8 @@
     <h2>Are you sure you want to delete @Model.Title?</h2>
     <form method="post"> 
         <input asp-for=MovieId type="hidden" value="@Model.MovieId" />
-        <button type="submit" class="btn btn-primary">Delete</button>
+        <button type="submit" class="btn btn-danger">Delete</button>
 
-        <a asp-controller="Home" asp-action="Movies" class="btn btn-info">Cancel</a>
+        <a asp-controller="Home" asp-action="Movies" class="btn btn-outline-primary">Cancel</a>
     </form>
-    @* <a class="btn btn-danger" asp-controller="Home" asp-action="ConfirmDeletion" asp-route-id="@Model.MovieId">Delete</a> *@
 </div>

@@ -2,14 +2,14 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "Movies";
+    ViewData["Title"] = "Add Movies";
 
 }
 @model Movie
 
 <h1>@ViewData["Title"]</h1>
 <form method="post" action="AddMovie">
-    <input asp-for="MovieId" value="@Model.MovieId" hidden />
+    <input asp-for="MovieId" value="@(Model?.MovieId ?? 0)" hidden />
     <label asp-for="Title">Movied Title:</label>
     <br />
     <input asp-for="Title" />

@@ -1,7 +1,14 @@
-﻿@model List<Movie>
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "All Movies";
+
+}
+@model List<Movie>
 
 <div>
-    <h2>Movies</h2>
+    <h1>@ViewData["Title"]</h1>
     <table class="table table-bordered">
         <tr>
             <th>Title</th>
@@ -31,7 +38,7 @@
                     <td>@movie.CopiedToPlex</td>
                     <td>@movie.Notes</td>
                     <td>
-                        <a class="btn btn-info" asp-controller="Home" asp-action="EditMovie" asp-route-id="@movie.MovieId">Edit</a>
+                        <a class="btn btn-primary" asp-controller="Home" asp-action="EditMovie" asp-route-id="@movie.MovieId">Edit</a>
                     </td>
                     <td>
                         <a class="btn btn-danger" asp-controller="Home" asp-action="DeleteMovie" asp-route-id="@movie.MovieId">Delete</a>
