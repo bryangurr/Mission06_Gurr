@@ -39,7 +39,6 @@ namespace Mission06_Gurr.Controllers
         {
             _context.Movies.Add(NewMovie); // Add record to database
             _context.SaveChanges();
-            //return RedirectToAction("AddMovie");
             return View("Confirmation", NewMovie);
         }
 
@@ -53,14 +52,44 @@ namespace Mission06_Gurr.Controllers
             return View(movies);
         }
 
-        public IActionResult Index1()
+
+        [HttpGet]
+        public IActionResult EditMovie(int id)
         {
-            var movies = _context.Movies
-                .Include(x => x.Category)
-                .OrderBy(x => x.MovieId)
+            var movie = _context.Movies
+                .Where(x => x.MovieId == id)
+                .FirstOrDefault();
+
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.CategoryId)
                 .ToList();
-            return View(movies);
+
+            return View("AddMovie", movie);
+        }
+        [HttpPost]
+        public IActionResult EditMovie(Movie updatedMovie)
+        {
+            _context.Update(updatedMovie);
+            _context.SaveChanges();
+            return RedirectToAction("Movies");
         }
 
+        [HttpGet]
+        public IActionResult DeleteMovie(int id)
+        {
+            var movie = _context.Movies
+                .Where(x => x.MovieId == id)
+                .FirstOrDefault();
+            return View("ConfirmDeletion", movie);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteMovie(Movie movie)
+        {
+            _context.Movies.Remove(movie);
+            _context.SaveChanges();
+
+            return RedirectToAction("Movies");
+        }
     }
 }

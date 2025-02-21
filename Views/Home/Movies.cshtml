@@ -13,6 +13,8 @@
             <th>Lent to</th>
             <th>Copied to Plex</th>
             <th>Notes</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         @if (Model != null)
         {
@@ -28,6 +30,12 @@
                     <td>@movie.LentTo</td>
                     <td>@movie.CopiedToPlex</td>
                     <td>@movie.Notes</td>
+                    <td>
+                        <a class="btn btn-info" asp-controller="Home" asp-action="EditMovie" asp-route-id="@movie.MovieId">Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" asp-controller="Home" asp-action="DeleteMovie" asp-route-id="@movie.MovieId">Delete</a>
+                    </td>
                 </tr>
             }
         }

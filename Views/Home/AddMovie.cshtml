@@ -9,6 +9,7 @@
 
 <h1>@ViewData["Title"]</h1>
 <form method="post" action="AddMovie">
+    <input asp-for="MovieId" value="@Model.MovieId" hidden />
     <label asp-for="Title">Movied Title:</label>
     <br />
     <input asp-for="Title" />
